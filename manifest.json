@@ -1,0 +1,12 @@
+{
+    "name": "Remember Me",
+    "version": "1.0",
+    "description": "♩♪ Remember me, though I have to say goodbye / Remember me, don't let it make you cry ♫♩",
+    "manifest_version": 2,
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    }
+}
