@@ -3,10 +3,22 @@
     "version": "1.0",
     "description": "♩♪ Remember me, though I have to say goodbye / Remember me, don't let it make you cry ♫♩",
     "manifest_version": 2,
+    "permissions": [
+        "notifications"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
     "background": {
-        "scripts": [
-            "background.js"
-        ],
+        "scripts": ["background.js"],
         "persistent": false
     }
 }
