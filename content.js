@@ -12,9 +12,10 @@ function scanPage(evt) {
 
             if (node.nodeType === 3) {
                 var textSearch = node.nodeValue.search(/remember/i);
-                if (textSearch > -1) {
+                if (textSearch > -1 && isElementVisible(element)) { 
                     console.log("♩♪ Remember me ♫♩");
                     playAudio();
+                    blinkElement(element, 3, 500);
                 }
             }
         }
@@ -22,7 +23,22 @@ function scanPage(evt) {
 }
 
 function playAudio() {
-    chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+    chrome.runtime.sendMessage({type: "playsound"}, function(response) {
     });
 }
 
+function isElementVisible(element) {
+    return element.offsetParent !== null;
+}
+
+function blinkElement(element, times, interval) {
+    var originalVisibility = element.style.visibility;
+    var hidden = false;
+    var count = 0;
+    var intervalId = setInterval(function() {
+        hidden = !hidden;
+        element.style.visibility = (hidden? 'hidden' : originalVisibility)
+        if (!hidden) count++;
+        if (count == times) clearInterval(intervalId);
+    }, interval);
+}
