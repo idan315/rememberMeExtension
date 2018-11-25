@@ -1,4 +1,5 @@
 window.addEventListener("load", scanPage, false);
+rememberMePhrases = phrases = [/remember me/i, /remember password/i, /זכור אותי/]
 
 function scanPage(evt) {
     console.log ("loaded!")
@@ -11,8 +12,9 @@ function scanPage(evt) {
             var node = element.childNodes[j];
 
             if (node.nodeType === 3) {
-                var textSearch = node.nodeValue.search(/remember/i);
-                if (textSearch > -1 && isElementVisible(element)) { 
+                var match = false;
+                rememberMePhrases.forEach(phrase =>  match = match || (node.nodeValue.search(phrase) > -1));
+                if (match && isElementVisible(element)) { 
                     console.log("♩♪ Remember me ♫♩");
                     playAudio();
                     blinkElement(element, 3, 500);
