@@ -18,7 +18,13 @@
         }
     ],
     "background": {
-        "scripts": ["background.js"],
+        "scripts": [
+            "background.js"
+        ],
         "persistent": false
+    },
+    "icons": {
+        "48": "icon48.png",
+        "128": "icon128.png"
     }
 }
