@@ -1,7 +1,7 @@
 {
-    "name": "Remember Me",
+    "name": "♩♪ Remember Me ♫♩",
     "version": "1.0",
-    "description": "♩♪ Remember me, though I have to say goodbye / Remember me, don't let it make you cry ♫♩",
+    "description": "Appropriately notifies you when a web page offers to remember you",
     "manifest_version": 2,
     "permissions": [
         "notifications"
