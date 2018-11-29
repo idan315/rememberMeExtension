@@ -1,5 +1,8 @@
+const TIMES_TO_BLINK = 3
+const BLINK_INTERVAL = 500
+const REMEMBER_ME_PHRASES = [/remember me/i, /remember password/i, /זכור אותי/]
+
 window.addEventListener("load", scanPage, false);
-rememberMePhrases = phrases = [/remember me/i, /remember password/i, /זכור אותי/]
 
 function scanPage(evt) {
     console.log ("loaded!")
@@ -13,11 +16,11 @@ function scanPage(evt) {
 
             if (node.nodeType === 3) {
                 var match = false;
-                rememberMePhrases.forEach(phrase =>  match = match || (node.nodeValue.search(phrase) > -1));
+                REMEMBER_ME_PHRASES.forEach(phrase =>  match = match || (node.nodeValue.search(phrase) > -1));
                 if (match && isElementVisible(element)) { 
                     console.log("♩♪ Remember me ♫♩");
                     playAudio();
-                    blinkElement(element, 3, 500);
+                    blinkElement(element, TIMES_TO_BLINK, BLINK_INTERVAL);
                 }
             }
         }
