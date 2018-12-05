@@ -5,7 +5,7 @@ const REMEMBER_ME_PHRASES = [/remember me/i, /remember password/i, /זכור א�
 window.addEventListener("load", scanPage, false);
 
 function scanPage(evt) {
-    console.log ("loaded!")
+    var matchFound = false;
     var elements = document.getElementsByTagName('*');
 
     for (var i = 0; i < elements.length; i++) {
@@ -18,9 +18,12 @@ function scanPage(evt) {
                 var match = false;
                 REMEMBER_ME_PHRASES.forEach(phrase =>  match = match || (node.nodeValue.search(phrase) > -1));
                 if (match && isElementVisible(element)) { 
-                    console.log("♩♪ Remember me ♫♩");
-                    playAudio();
+                    if (!matchFound) {
+                        console.log("♩♪ Remember me ♫♩");
+                        playAudio();
+                    }
                     blinkElement(element, TIMES_TO_BLINK, BLINK_INTERVAL);
+                    matchFound = true;
                 }
             }
         }
