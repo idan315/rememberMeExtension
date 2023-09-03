@@ -1,11 +1,8 @@
 {
     "name": "♩♪ Remember Me ♫♩",
-    "version": "1.0",
+    "version": "1.0.2",
     "description": "Appropriately notifies you when a web page offers to remember you",
     "manifest_version": 2,
-    "permissions": [
-        "notifications"
-    ],
     "content_scripts": [
         {
             "matches": [
