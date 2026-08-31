@@ -17,12 +17,8 @@
     "background": {
         "service_worker": "background.js"
     },
-    "action": {
-        "default_title": "Remember Me"
-    },
     "permissions": [
-        "offscreen",
-        "notifications"
+        "offscreen"
     ],
     "icons": {
         "48": "icon48.png",
