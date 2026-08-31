@@ -2,7 +2,7 @@
     "name": "♩♪ Remember Me ♫♩",
     "version": "1.0.2",
     "description": "Appropriately notifies you when a web page offers to remember you",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "content_scripts": [
         {
             "matches": [
@@ -15,10 +15,7 @@
         }
     ],
     "background": {
-        "scripts": [
-            "background.js"
-        ],
-        "persistent": false
+        "service_worker": "background.js"
     },
     "icons": {
         "48": "icon48.png",
